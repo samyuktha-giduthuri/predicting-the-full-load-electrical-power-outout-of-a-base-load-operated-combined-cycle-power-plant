@@ -1,0 +1,2 @@
+# predicting-the-full-load-electrical-power-outout-of-a-base-load-operated-combined-cycle-power-plant
+Our project focuses on predicting the full load electrical power output of a base load operated combined cycle power plant using machine learning. By analyzing operational data and fuel characteristics we develop a predictive model. This model assists power plant operators in managing  and forecasting power output under varying conditions.
