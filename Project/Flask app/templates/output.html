@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8c0;
+            padding: 20px;
+        }
+        .header {
+            background-color: blue;
+            color: white;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .content {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+        .btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        PREDICTION RESULT
+    </div>
+    <div class="content" id="output">
+        Calculating prediction...
+    </div>
+
+    <script>
+        function getQueryParams() {
+            let params = new URLSearchParams(window.location.search);
+            return {
+                at: parseFloat(params.get('at')),
+                v: parseFloat(params.get('v')),
+                ap: parseFloat(params.get('ap')),
+                rh: parseFloat(params.get('rh'))
+            };
+        }
+
+        function predictOutput() {
+            let { at, v, ap, rh } = getQueryParams();
+
+            if (isNaN(at) || isNaN(v) || isNaN(ap) || isNaN(rh)) {
+                document.getElementById('output').innerHTML = "Invalid input values. Please try again.";
+                return;
+            }
+
+            // Mock prediction logic (replace with actual model logic if needed)
+            let prediction = (500 - (at * 0.5) + (v * 1.2) + (ap * 0.8) - (rh * 0.3)).toFixed(4);
+            document.getElementById('output').innerHTML = "Prediction of Electrical Output is: " + prediction;
+        }
+
+        window.onload = predictOutput;
+    </script>
+</body>
+</html>
